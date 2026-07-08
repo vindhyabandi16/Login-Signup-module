@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import AuthInput from "../components/AuthInput";
-import { validateConfirmPassword, validateEmail, validatePassword, validateRequired } from "../utils/validation";
+import { validateConfirmPassword, validateEmail, validatePassword, validateFullName } from "../utils/validation";
 
 function Signup() {
     const [formData, setFormData] = useState({
@@ -28,7 +28,7 @@ function Signup() {
     }
 
     useEffect(() => {
-        const fullNameError = validateRequired(formData.fullName, "Full name");
+        const fullNameError = validateFullName(formData.fullName);
         const emailError =  validateEmail(formData.email);
         const passwordError = validatePassword(formData.password);
         const confirmPasswordError = validateConfirmPassword(formData.password, formData.confirmPassword);

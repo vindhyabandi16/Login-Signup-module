@@ -1,3 +1,18 @@
+export function validateFullName(fullName) {
+    if (!fullName.trim()) {
+        return "Full name is required";
+    }
+
+    const namePattern = /^[A-Za-z\s]+$/;
+
+    if (!namePattern.test(fullName)) {
+        return "Full name should contain only letters and spaces";
+    }
+
+    return "";
+}
+
+
 export function validateEmail(email) {
     if(!email.trim()) {
         return "Email is required";
